@@ -28,6 +28,9 @@ public class Barang {
   private String category;
 
   @Column
+  private Integer quantity;
+
+  @Column
   private String description;
 
   @OneToOne

@@ -19,24 +19,29 @@ public class CartController {
   @Autowired
   UserRepository userRepository;
 
-  @GetMapping(path = "/cart")
+  @GetMapping(path = "/dashboard")
   public String home(Model model) {
     model.addAttribute("barangList", barangService.findAll());
-    return "template/barang";
+    return "/template/index.html";
   }
 
+  @GetMapping(path = "/barang")
+  public String formBarang() {
+    return "template/form";
+  }
 
   @PostMapping(path = "/barang")
   public String createBarang(
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
+      @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
     //Dummy
     String userId = "aaaa";
     //
-    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, description, userId);
+    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description, userId);
     barangService.create(newBarang);
-    return "redirect:/cart";
+    return "redirect:/dashboard";
   }
 
   @PutMapping(path = "/barang/{id}")
@@ -44,19 +49,20 @@ public class CartController {
       @PathVariable String id,
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
+      @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
     //Dummy
     String userId = "aaaa";
     //
-    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, description, userId);
+    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description, userId);
     barangService.update(id, updateBarang);
-    return "redirect:/cart";
+    return "redirect:/barang";
   }
 
   @DeleteMapping(path = "/barang/{id}")
   public String deleteBarang(@PathVariable String id) {
     barangService.deleteById(id);
-    return "template/barang";
+    return "redirect:/dashboard";
   }
 
 

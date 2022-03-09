@@ -16,6 +16,8 @@ public class UpdateBarangRequest {
 
   private String category;
 
+  private Integer quantity;
+
   private String description;
 
   private String userId;

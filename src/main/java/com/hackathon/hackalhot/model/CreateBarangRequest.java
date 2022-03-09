@@ -16,6 +16,8 @@ public class CreateBarangRequest {
 
   private String category;
 
+  private Integer quantity;
+
   private String description;
 
   private String userId;
