@@ -1,4 +1,4 @@
 header.hero {
-    background-image: url("../assets/hero.jpg");
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../assets/hero.jpg");
     background-size: cover; /* Resize the background image to cover the entire container */
 }
