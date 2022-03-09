@@ -13,3 +13,9 @@ header.hero {
     background-position: center;
     background-size: cover;
 }
+
+.bg-register-image {
+    background: url("../assets/register.jpg");
+    background-position: center;
+    background-size: cover;
+}
