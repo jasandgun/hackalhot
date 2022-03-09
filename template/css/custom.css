@@ -1,0 +1,4 @@
+header.hero {
+    background-image: url("../assets/hero.jpg");
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
