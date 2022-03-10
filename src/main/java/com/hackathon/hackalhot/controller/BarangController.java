@@ -1,19 +1,16 @@
 package com.hackathon.hackalhot.controller;
 
-import com.hackathon.hackalhot.entity.User;
 import com.hackathon.hackalhot.model.CreateBarangRequest;
 import com.hackathon.hackalhot.model.UpdateBarangRequest;
 import com.hackathon.hackalhot.repository.UserRepository;
 import com.hackathon.hackalhot.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-public class CartController {
+public class BarangController {
 
   @Autowired
   BarangService barangService;
@@ -73,19 +70,5 @@ public class CartController {
   public String deleteBarang(@PathVariable String id) {
     barangService.deleteById(id);
     return "redirect:/";
-  }
-
-//  Running checks for integration between FE and BE
-  @GetMapping(path = "/terhibah")
-  public String deliveredBarang() {
-    return "terhibah";
-  }
-  @GetMapping(path = "/user-profile")
-  public String userProfile() {
-    return "profile";
-  }
-  @GetMapping(path = "/user-login")
-  public String userLogin() {
-    return "login";
   }
 }
