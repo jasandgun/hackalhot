@@ -7,10 +7,11 @@ import com.hackathon.hackalhot.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 public class CartController {
 
   @Autowired
@@ -22,12 +23,12 @@ public class CartController {
   @GetMapping(path = "/dashboard")
   public String home(Model model) {
     model.addAttribute("barangList", barangService.findAll());
-    return "/template/index.html";
+    return "index";
   }
 
-  @GetMapping(path = "/barang")
+  @GetMapping(path = "/upload-barang")
   public String formBarang() {
-    return "template/form";
+    return "upload_barang";
   }
 
   @PostMapping(path = "/barang")
@@ -65,6 +66,21 @@ public class CartController {
     return "redirect:/dashboard";
   }
 
-
-
+//  Running checks for integration between FE and BE
+  @GetMapping(path = "/terhibah")
+  public String deliveredBarang() {
+    return "terhibah";
+  }
+  @GetMapping(path = "/user-profile")
+  public String userProfile() {
+    return "profile";
+  }
+  @GetMapping(path = "/barangku")
+  public String personalBarang() {
+    return "barangku";
+  }
+  @GetMapping(path = "/user-login")
+  public String userLogin() {
+    return "login";
+  }
 }
