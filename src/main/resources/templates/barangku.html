@@ -22,7 +22,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" th:href="@{/dashboard}"><i class="bi bi-box2"></i> Warehouse</a>
+                <a class="navbar-brand" th:href="@{/}"><i class="bi bi-box2"></i> Warehouse</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -72,13 +72,13 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody th:each="barang, iStat: ${barangList}">
                                 <tr>
-                                    <td>1</td>
-                                    <td>Sampah kertas</td>
-                                    <td>Organik</td>
-                                    <td>5</td>
-                                    <td>Kardus bekas minuman yang tidak terpakai</td>
+                                    <td th:text="${iStat.count}"></td>
+                                    <td th:text="${barang.getName()}"></td>
+                                    <td th:text="${barang.getCategory()}"></td>
+                                    <td th:text="${barang.getQuantity()}"></td>
+                                    <td th:text="${barang.getDescription()}"></td>
                                     <td class="text-center">
                                         <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
                                     </td>
@@ -87,34 +87,7 @@
                                         <button class="btn btn-sm btn-outline-danger" onclick="deleteAlert(1)"><i class="bi bi-trash"></i></button>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Sampah kertas</td>
-                                    <td>Organik</td>
-                                    <td>5</td>
-                                    <td>Kardus bekas minuman yang tidak terpakai</td>
-                                    <td class="text-center">
-                                        <span class="badge badge-success p-2"><i class="bi bi-handbag"></i> Tersalurkan</span>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteAlert(2)"><i class="bi bi-trash"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Sampah kertas</td>
-                                    <td>Organik</td>
-                                    <td>5</td>
-                                    <td>Kardus bekas minuman yang tidak terpakai</td>
-                                    <td class="text-center">
-                                        <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteAlert(3)"><i class="bi bi-trash"></i></button>
-                                    </td>
-                                </tr>
+
                             </tbody>
                         </table>
                     </div>

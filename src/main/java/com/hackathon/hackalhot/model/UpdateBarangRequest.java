@@ -20,5 +20,5 @@ public class UpdateBarangRequest {
 
   private String description;
 
-  private String userId;
+//  private String userId;
 }

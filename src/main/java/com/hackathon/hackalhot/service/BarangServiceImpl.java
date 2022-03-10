@@ -23,8 +23,10 @@ public class BarangServiceImpl implements BarangService {
 
   @Override
   public Barang create(CreateBarangRequest request) {
-    User user = userRepository.getById(request.getUserId());
-    Barang barang = Barang.builder().userId(user).build();
+    // jika pakai user
+//    User user = userRepository.getById(request.getUserId());
+//    Barang barang = Barang.builder().userId(user).build();
+    Barang barang = Barang.builder().build();
     BeanUtils.copyProperties(request,barang);
     return barangRepository.save(barang);
   }

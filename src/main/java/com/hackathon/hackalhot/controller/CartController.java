@@ -1,5 +1,6 @@
 package com.hackathon.hackalhot.controller;
 
+import com.hackathon.hackalhot.entity.User;
 import com.hackathon.hackalhot.model.CreateBarangRequest;
 import com.hackathon.hackalhot.model.UpdateBarangRequest;
 import com.hackathon.hackalhot.repository.UserRepository;
@@ -20,7 +21,7 @@ public class CartController {
   @Autowired
   UserRepository userRepository;
 
-  @GetMapping(path = "/dashboard")
+  @GetMapping(path = "/")
   public String home(Model model) {
     model.addAttribute("barangList", barangService.findAll());
     return "index";
@@ -31,21 +32,29 @@ public class CartController {
     return "upload_barang";
   }
 
-  @PostMapping(path = "/barang")
+  @GetMapping(path = "/barangku")
+  public String personalBarang(Model model) {
+    model.addAttribute("barangList", barangService.findAll());
+    return "barangku";
+  }
+
+  @PostMapping(path = "/barangku")
   public String createBarang(
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
       @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
     //Dummy
-    String userId = "aaaa";
+//    User newUser = new User("dummyId","dummyName", "dummyAddress", "dummyContactNumber");
+//    userRepository.save(newUser);
+//    String userId = "dummyId";
     //
-    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description, userId);
+    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description);
     barangService.create(newBarang);
-    return "redirect:/dashboard";
+    return "redirect:/barangku";
   }
 
-  @PutMapping(path = "/barang/{id}")
+  @PutMapping(path = "/barangku/{id}")
   public String updateBarang(
       @PathVariable String id,
       @RequestParam(value = "name") String name,
@@ -53,17 +62,17 @@ public class CartController {
       @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
     //Dummy
-    String userId = "aaaa";
+//    String userId = "dummyId";
     //
-    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description, userId);
+    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description);
     barangService.update(id, updateBarang);
     return "redirect:/barang";
   }
 
-  @DeleteMapping(path = "/barang/{id}")
+  @DeleteMapping(path = "/barangku/{id}")
   public String deleteBarang(@PathVariable String id) {
     barangService.deleteById(id);
-    return "redirect:/dashboard";
+    return "redirect:/";
   }
 
 //  Running checks for integration between FE and BE
@@ -74,10 +83,6 @@ public class CartController {
   @GetMapping(path = "/user-profile")
   public String userProfile() {
     return "profile";
-  }
-  @GetMapping(path = "/barangku")
-  public String personalBarang() {
-    return "barangku";
   }
   @GetMapping(path = "/user-login")
   public String userLogin() {

@@ -33,9 +33,9 @@ public class Barang {
   @Column
   private String description;
 
-  @OneToOne
-  @JoinColumn(name="user_id")
-  private User userId;
+//  @OneToOne
+//  @JoinColumn(name="user_id")
+//  private User userId;
 
   @Version
   @Column
