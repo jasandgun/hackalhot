@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Home - Warehouse</title>
+        <title>Detail Barang - Warehouse</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" th:href="@{/assets/favicon.ico}" />
         <!-- Bootstrap icons-->
@@ -24,7 +24,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" aria-current="page" th:href="@{/}">Home</a></li>
                         <li class="nav-item"><a class="nav-link" th:href="@{/terhibah}">Terhibah</a></li>
                     </ul>
                     <div class="d-flex dropdown">
@@ -43,56 +43,39 @@
                 </div>
             </div>
         </nav>
-        <!-- Header-->
-        <header class="bg-secondary-200 py-5 hero">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Buat barangmu lebih berguna.</h1>
-                    <p class="lead fw-normal text-white-5">Ada barangmu yang tidak terpakai? </p>
-                    <a class="btn btn-primary" th:href="@{upload-barang}">Tambahkan di sini</a>
-                </div>
-            </div>
-        </header>
         <!-- Section-->
-        <section class="py-5">
-            <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                    <div class="col mb-5">
+        <section class="container vh-100">
+            <div class="px-4 px-lg-5 mt-5">
+                <!-- <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-3 row-cols-xl-1 justify-content-center"> -->
+                    <div class="row justify-content-center">
+                    <div class="col-md-10 mb-5">
                         <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder text-primary">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-4 d-flex flex-column justify-content-center">
+                                        <img src="https://dummyimage.com/200x200/dee2e6/6c757d.jpg" class="img-thumbnail align-self-center" alt="...">
+                                        <div class="text-center pt-4">
+                                            <h4 class="fw-bolder text-primary">Fancy Product</h4>
+                                            <hr>
+                                            <p class="h4 m-0"><span class="badge badge-danger p-2"><i class="bi bi-handbag"></i> Tersalurkan</span></p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 p-4">
+                                        <div class="align-middle">
+                                            <p>Kategori : <span class="text-secondary">Organik</span></p>
+                                            <hr>
+                                            <p>Jumlah : 10</p>
+                                            <hr>
+                                            <p>Deskripsi : </p> 
+                                            <p class="text-justify text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque beatae iusto, quo officiis deserunt ab possimus culpa, nostrum sint quod repudiandae impedit corporis, magni nobis vitae? Tempora voluptas aspernatur enim.</p>
+                                        </div>
+                                    </div>                                    
                                 </div>
                             </div>
                             <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-secondary mt-auto" th:href="@{/detail-barang}">Lihat barang</a></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Product image-->
-                            <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                            <!-- Product details-->
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Product name-->
-                                    <h5 class="fw-bolder text-primary">Fancy Product</h5>
-                                    <!-- Product price-->
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-secondary mt-auto" th:href="@{/detail-barang}">Lihat barang</a></div>
-                            </div>
+                            <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                                <div class="text-center"><a class="btn btn-outline-secondary mt-auto" href="#">Lihat barang</a></div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -105,6 +88,6 @@
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script th:src="@{/js/script.js}"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>

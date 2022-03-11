@@ -26,13 +26,23 @@ public class BarangController {
 
   @GetMapping(path = "/upload-barang")
   public String formBarang() {
-    return "upload_barang";
+    return "barang/upload_barang";
   }
 
   @GetMapping(path = "/barangku")
   public String personalBarang(Model model) {
     model.addAttribute("barangList", barangService.findAll());
-    return "barangku";
+    return "barang/barangku";
+  }
+
+  @GetMapping(path = "/detail-barang")
+  public String detailBarang() {
+    return "barang/detail_barang";
+  }
+
+  @GetMapping(path = "/terhibah")
+  public String deliveredBarang() {
+    return "barang/terhibah";
   }
 
   @PostMapping(path = "/barangku")
