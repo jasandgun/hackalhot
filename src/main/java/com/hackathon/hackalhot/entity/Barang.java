@@ -34,9 +34,12 @@ public class Barang {
   private String description;
 
   @Column
+  private String pictureUrl;
+
+  @Column
   private Boolean isTersalurkan;
 
   @Version
   @Column
-  Long version;
+  private Long version;
 }

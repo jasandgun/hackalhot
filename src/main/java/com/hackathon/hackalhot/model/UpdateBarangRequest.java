@@ -18,4 +18,6 @@ public class UpdateBarangRequest {
   private Integer quantity;
 
   private String description;
+
+  private String pictureUrl;
 }

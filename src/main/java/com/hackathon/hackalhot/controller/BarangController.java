@@ -29,9 +29,10 @@ public class BarangController {
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
       @RequestParam(value = "quantity") Integer quantity,
-      @RequestParam(value = "description") String description) {
+      @RequestParam(value = "description") String description,
+      @RequestParam(value = "pictureUrl") String pictureUrl) {
 
-    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description, false);
+    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description, pictureUrl, false);
     barangService.create(newBarang);
     return "redirect:/barangku";
   }
@@ -48,9 +49,10 @@ public class BarangController {
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
       @RequestParam(value = "quantity") Integer quantity,
-      @RequestParam(value = "description") String description) {
+      @RequestParam(value = "description") String description,
+      @RequestParam(value = "pictureUrl") String pictureUrl) {
 
-    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description);
+    UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description, pictureUrl);
     barangService.update(id, updateBarang);
     return "redirect:/barangku";
   }

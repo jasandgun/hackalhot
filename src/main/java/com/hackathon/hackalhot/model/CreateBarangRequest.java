@@ -19,5 +19,7 @@ public class CreateBarangRequest {
 
   private String description;
 
+  private String pictureUrl;
+
   private Boolean isTersalurkan;
 }
