@@ -1,7 +1,6 @@
 package com.hackathon.hackalhot.controller;
 
 import com.hackathon.hackalhot.model.CreateBarangRequest;
-import com.hackathon.hackalhot.model.SalurkanBarangRequest;
 import com.hackathon.hackalhot.model.UpdateBarangRequest;
 import com.hackathon.hackalhot.repository.UserRepository;
 import com.hackathon.hackalhot.service.BarangService;
@@ -19,31 +18,10 @@ public class BarangController {
   @Autowired
   UserRepository userRepository;
 
-  @GetMapping(path = "/")
-  public String home(Model model) {
-    model.addAttribute("barangList", barangService.findAll());
-    return "index";
-  }
-
-  @GetMapping(path = "/upload-barang")
-  public String formBarang() {
-    return "barang/upload_barang";
-  }
-
   @GetMapping(path = "/barangku")
   public String personalBarang(Model model) {
     model.addAttribute("barangList", barangService.findAll());
     return "barang/barangku";
-  }
-
-  @GetMapping(path = "/detail-barang")
-  public String detailBarang() {
-    return "barang/detail_barang";
-  }
-
-  @GetMapping(path = "/terhibah")
-  public String deliveredBarang() {
-    return "barang/terhibah";
   }
 
   @PostMapping(path = "/barangku")
@@ -61,6 +39,7 @@ public class BarangController {
   @GetMapping(path = "/update-barangku/{id}")
   public String updateBarangView(@PathVariable String id, Model model) {
     model.addAttribute("barang", barangService.findById(id));
+    model.addAttribute("options", new String[]{"Organik", "Anorganik", "B3 (Bahan Berbahaya dan Beracun)", "Lain-lain"});
     return "barang/update_barang";
   }
   @PutMapping(path = "/update-barangku/{id}")
@@ -73,13 +52,6 @@ public class BarangController {
 
     UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description);
     barangService.update(id, updateBarang);
-    return "redirect:/barangku";
-  }
-
-  @PutMapping(path = "/salurkan/{id}")
-  public String salurkan(@PathVariable String id) {
-    SalurkanBarangRequest salurkanBarangRequest = new SalurkanBarangRequest(true);
-    barangService.salurkan(id, salurkanBarangRequest);
     return "redirect:/barangku";
   }
 

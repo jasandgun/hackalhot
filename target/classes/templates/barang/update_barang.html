@@ -66,11 +66,8 @@
 
                                 <div class="form-group">
                                     <label for="exampleFormControlSelect1">Kategori</label>
-                                    <select name="category" class="form-control" id="exampleFormControlSelect1" th:value="${barang.getCategory()}">
-                                        <option>Organik</option>
-                                        <option>Anorganik</option>
-                                        <option>B3 (Bahan Berbahaya dan Beracun)</option>
-                                        <option>Lain-lain</option>
+                                    <select name="category" class="form-control" id="exampleFormControlSelect1">
+                                        <option th:each="option : ${options}" th:text="${option}"></option>
                                     </select>
                                 </div>
 
@@ -84,7 +81,7 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Deskripsi Barang</label>
                                     <textarea name="description" class="form-control" id="exampleFormControlTextarea1"
-                                              rows="3" th:placeholder="${barang.getDescription()}" th:value="${barang.getDescription()}"></textarea>
+                                              rows="3" th:placeholder="${barang.getDescription()}" th:text="${barang.getDescription()}"></textarea>
                                 </div>
 
                                 <button type="submit" class="btn btn-block btn-primary">Update</button>

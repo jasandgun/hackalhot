@@ -1,6 +1,5 @@
 package com.hackathon.hackalhot.model;
 
-import com.hackathon.hackalhot.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -19,6 +18,4 @@ public class UpdateBarangRequest {
   private Integer quantity;
 
   private String description;
-
-//  private String userId;
 }

@@ -10,10 +10,12 @@ public class UserController {
     public String userProfile() {
         return "user/profile";
     }
+
     @GetMapping(path = "/user-login")
     public String userLogin() {
         return "user/login";
     }
+
     @GetMapping(path = "/user-register")
     public String userRegister() {
         return "user/register";

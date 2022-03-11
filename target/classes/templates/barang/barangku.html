@@ -72,8 +72,8 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tbody th:each="barang, iStat: ${barangList}">
-                                <tr>
+                            <tbody>
+                                <tr th:each="barang, iStat: ${barangList}">
                                     <td th:text="${iStat.count}"></td>
                                     <td th:text="${barang.getName()}"></td>
                                     <td th:text="${barang.getCategory()}"></td>
@@ -120,26 +120,6 @@
             $(document).ready(function() {
                 $('#example').DataTable();
             } );
-            // let deleteAlert = (id) => {
-            //     console.log(id)
-            //     swal({
-            //     title: "Kamu yakin?",
-            //     text: "Setelah dihapus, Anda tidak akan dapat memulihkan data barang ini!",
-            //     icon: "warning",
-            //     buttons: true,
-            //     dangerMode: true,
-            // }).then((willDelete) => {
-            //     if (willDelete) {
-            //         // form.submit();
-            //         swal("Barang telah dihapus!", {
-            //             icon: "success",
-            //         });
-            //         console.log(this);
-            //     } else {
-            //         swal("Barangmu aman!");
-            //     }
-            //     });
-            // }
             const formS = document.querySelector("#delete-barang-form");
             formS.addEventListener("submit", (e) => {
                 e.preventDefault();

@@ -10,5 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SalurkanBarangRequest {
+
     private Boolean isTersalurkan;
 }

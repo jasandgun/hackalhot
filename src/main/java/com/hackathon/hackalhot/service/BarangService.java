@@ -11,11 +11,14 @@ import java.util.List;
 public interface BarangService {
 
   Barang create(CreateBarangRequest request);
-  List<Barang> findAll();
-  Barang findById(String id);
-  Barang update(String id, UpdateBarangRequest request);
-  void deleteById(String id);
-  Barang salurkan(String id, SalurkanBarangRequest request);
-//  Page<Barang> filter(FilterBarangRequest request);
 
+  List<Barang> findAll();
+
+  Barang findById(String id);
+
+  Barang update(String id, UpdateBarangRequest request);
+
+  void deleteById(String id);
+
+  Barang salurkan(String id, SalurkanBarangRequest request);
 }

@@ -55,27 +55,26 @@
                                     <div class="col-md-4 d-flex flex-column justify-content-center">
                                         <img src="https://dummyimage.com/200x200/dee2e6/6c757d.jpg" class="img-thumbnail align-self-center" alt="...">
                                         <div class="text-center pt-4">
-                                            <h4 class="fw-bolder text-primary">Fancy Product</h4>
+                                            <h4 class="fw-bolder text-primary" th:text="${barang.getName()}"></h4>
                                             <hr>
-                                            <p class="h4 m-0"><span class="badge badge-danger p-2"><i class="bi bi-handbag"></i> Tersalurkan</span></p>
+                                            <p class="h4 m-0" th:if="${barang.isTersalurkan == true}"><span class="badge badge-danger p-2" ><i class="bi bi-handbag"></i>Tersalurkan</span></p>
+                                            <form th:unless="${barang.isTersalurkan == true}" th:action="@{'/salurkan/{id}'(id=${barang.getId()})}" th:method="put">
+                                                <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
+                                            </form>
                                         </div>
                                     </div>
                                     <div class="col-md-8 p-4">
                                         <div class="align-middle">
-                                            <p>Kategori : <span class="text-secondary">Organik</span></p>
+                                            <p>Kategori : <span class="text-secondary" th:text="${barang.getCategory()}"></span></p>
                                             <hr>
-                                            <p>Jumlah : 10</p>
+                                            <p>Jumlah : <span class="text-secondary" th:text="${barang.getQuantity()}"></span></p>
                                             <hr>
                                             <p>Deskripsi : </p> 
-                                            <p class="text-justify text-muted">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque beatae iusto, quo officiis deserunt ab possimus culpa, nostrum sint quod repudiandae impedit corporis, magni nobis vitae? Tempora voluptas aspernatur enim.</p>
+                                            <p class="text-justify text-muted" th:text="${barang.getDescription()}"></p>
                                         </div>
                                     </div>                                    
                                 </div>
                             </div>
-                            <!-- Product actions-->
-                            <!-- <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-secondary mt-auto" href="#">Lihat barang</a></div>
-                            </div> -->
                         </div>
                     </div>
                 </div>
