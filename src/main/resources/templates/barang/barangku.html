@@ -80,7 +80,10 @@
                                     <td th:text="${barang.getQuantity()}"></td>
                                     <td th:text="${barang.getDescription()}"></td>
                                     <td class="text-center">
-                                        <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
+                                        <span th:if="${barang.isTersalurkan == true}" class="badge badge-success p-2"><i class="bi bi-handbag"></i> Tersalurkan</span>
+                                        <form th:unless="${barang.isTersalurkan == true}" th:action="@{'/salurkan/{id}'(id=${barang.getId()})}" th:method="put">
+                                            <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
+                                        </form>
                                     </td>
                                     <td>
                                         <form th:action="@{'/update-barangku/{id}'(id=${barang.getId()})}" th:method="get">

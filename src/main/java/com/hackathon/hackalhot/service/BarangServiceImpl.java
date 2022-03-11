@@ -3,6 +3,7 @@ package com.hackathon.hackalhot.service;
 import com.hackathon.hackalhot.entity.Barang;
 import com.hackathon.hackalhot.entity.User;
 import com.hackathon.hackalhot.model.CreateBarangRequest;
+import com.hackathon.hackalhot.model.SalurkanBarangRequest;
 import com.hackathon.hackalhot.model.UpdateBarangRequest;
 import com.hackathon.hackalhot.repository.BarangRepository;
 import com.hackathon.hackalhot.repository.UserRepository;
@@ -51,5 +52,11 @@ public class BarangServiceImpl implements BarangService {
   @Override
   public void deleteById(String id) {
     barangRepository.deleteById(id);
+  }
+
+  public Barang salurkan(String id, SalurkanBarangRequest request) {
+    Barang barang = barangRepository.getById(id);
+    BeanUtils.copyProperties(request, barang);
+    return barangRepository.save(barang);
   }
 }

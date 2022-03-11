@@ -33,9 +33,8 @@ public class Barang {
   @Column
   private String description;
 
-//  @OneToOne
-//  @JoinColumn(name="user_id")
-//  private User userId;
+  @Column
+  private Boolean isTersalurkan;
 
   @Version
   @Column

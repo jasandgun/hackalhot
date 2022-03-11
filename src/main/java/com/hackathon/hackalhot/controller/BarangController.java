@@ -1,6 +1,7 @@
 package com.hackathon.hackalhot.controller;
 
 import com.hackathon.hackalhot.model.CreateBarangRequest;
+import com.hackathon.hackalhot.model.SalurkanBarangRequest;
 import com.hackathon.hackalhot.model.UpdateBarangRequest;
 import com.hackathon.hackalhot.repository.UserRepository;
 import com.hackathon.hackalhot.service.BarangService;
@@ -52,7 +53,7 @@ public class BarangController {
       @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
 
-    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description);
+    CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description, false);
     barangService.create(newBarang);
     return "redirect:/barangku";
   }
@@ -72,6 +73,13 @@ public class BarangController {
 
     UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description);
     barangService.update(id, updateBarang);
+    return "redirect:/barangku";
+  }
+
+  @PutMapping(path = "/salurkan/{id}")
+  public String salurkan(@PathVariable String id) {
+    SalurkanBarangRequest salurkanBarangRequest = new SalurkanBarangRequest(true);
+    barangService.salurkan(id, salurkanBarangRequest);
     return "redirect:/barangku";
   }
 

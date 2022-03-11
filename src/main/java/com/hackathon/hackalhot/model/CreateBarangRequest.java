@@ -20,5 +20,6 @@ public class CreateBarangRequest {
 
   private String description;
 
+  private Boolean isTersalurkan;
 //  private String userId;
 }
