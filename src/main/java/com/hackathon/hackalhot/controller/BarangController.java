@@ -51,29 +51,28 @@ public class BarangController {
       @RequestParam(value = "category") String category,
       @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
-    //Dummy
-//    User newUser = new User("dummyId","dummyName", "dummyAddress", "dummyContactNumber");
-//    userRepository.save(newUser);
-//    String userId = "dummyId";
-    //
+
     CreateBarangRequest newBarang = new CreateBarangRequest(name, category, quantity, description);
     barangService.create(newBarang);
     return "redirect:/barangku";
   }
 
-  @PutMapping(path = "/barangku/{id}")
+  @GetMapping(path = "/update-barangku/{id}")
+  public String updateBarangView(@PathVariable String id, Model model) {
+    model.addAttribute("barang", barangService.findById(id));
+    return "barang/update_barang";
+  }
+  @PutMapping(path = "/update-barangku/{id}")
   public String updateBarang(
       @PathVariable String id,
       @RequestParam(value = "name") String name,
       @RequestParam(value = "category") String category,
       @RequestParam(value = "quantity") Integer quantity,
       @RequestParam(value = "description") String description) {
-    //Dummy
-//    String userId = "dummyId";
-    //
+
     UpdateBarangRequest updateBarang = new UpdateBarangRequest(name, category, quantity, description);
     barangService.update(id, updateBarang);
-    return "redirect:/barang";
+    return "redirect:/barangku";
   }
 
   @DeleteMapping(path = "/barangku/{id}")

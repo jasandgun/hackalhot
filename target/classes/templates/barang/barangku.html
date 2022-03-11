@@ -83,7 +83,9 @@
                                         <button class="btn btn-sm btn-outline-secondary"><i class="bi bi-gift-fill"></i> Salurkan Sekarang!</button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil-square"></i></button>
+                                        <form th:action="@{'/update-barangku/{id}'(id=${barang.getId()})}" th:method="get">
+                                            <button class="btn btn-sm btn-outline-warning" ><i class="bi bi-pencil-square"></i></button>
+                                        </form>
                                         <form name="deleteForm" id="delete-barang-form" th:action="@{'/barangku/{id}'(id=${barang.getId()})}" th:method="delete">
                                             <button id="button-delete" class="btn btn-sm btn-outline-danger" th:barang-id="${barang.getId()}" onclick="deleteAlert(this.getAttribute('barang-id'))"><i class="bi bi-trash"></i></button>
                                         </form>
