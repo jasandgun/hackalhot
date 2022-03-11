@@ -65,7 +65,7 @@
                                 <tr>
                                     <th>No.</th>
                                     <th>Nama Barang</th>
-                                    <th>Categori</th>
+                                    <th>Kategori</th>
                                     <th>Jumlah</th>
                                     <th>Deskripsi</th>
                                     <th>Status</th>
@@ -84,7 +84,9 @@
                                     </td>
                                     <td>
                                         <button class="btn btn-sm btn-outline-warning"><i class="bi bi-pencil-square"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger" onclick="deleteAlert(1)"><i class="bi bi-trash"></i></button>
+                                        <form name="deleteForm" id="delete-barang-form" th:action="@{'/barangku/{id}'(id=${barang.getId()})}" th:method="delete">
+                                            <button id="button-delete" class="btn btn-sm btn-outline-danger" th:barang-id="${barang.getId()}" onclick="deleteAlert(this.getAttribute('barang-id'))"><i class="bi bi-trash"></i></button>
+                                        </form>
                                     </td>
                                 </tr>
 
@@ -109,30 +111,54 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <!-- Core theme JS-->
         <script th:src="@{/js/script.js}"></script>
-        <script>
+        <script th:inline="javascript">
             $(document).ready(function() {
                 $('#example').DataTable();
             } );
-
-            let deleteAlert = (id) => {
-                swal({
-                title: "Kamu yakin?",
-                text: "Setelah dihapus, Anda tidak akan dapat memulihkan data barang ini!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                // todo
-                console.log(id);
-                swal("Barang telah dihapus!", {
-                    icon: "success",
-                });
-            } else {
-                swal("Barangmu aman!");
-            }
+            // let deleteAlert = (id) => {
+            //     console.log(id)
+            //     swal({
+            //     title: "Kamu yakin?",
+            //     text: "Setelah dihapus, Anda tidak akan dapat memulihkan data barang ini!",
+            //     icon: "warning",
+            //     buttons: true,
+            //     dangerMode: true,
+            // }).then((willDelete) => {
+            //     if (willDelete) {
+            //         // form.submit();
+            //         swal("Barang telah dihapus!", {
+            //             icon: "success",
+            //         });
+            //         console.log(this);
+            //     } else {
+            //         swal("Barangmu aman!");
+            //     }
+            //     });
+            // }
+            const formS = document.querySelector("#delete-barang-form");
+            formS.addEventListener("submit", (e) => {
+                e.preventDefault();
             });
+            let deleteAlert = (id) => {
+                // event.preventDefault(); // prevent form submit
+                const form = document.querySelector("#delete-barang-form");
+                swal({
+                    title: "Kamu yakin?",
+                    text: "Setelah dihapus, Anda tidak akan dapat memulihkan data barang ini!",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                }).then((willDelete) => {
+                        if (willDelete) {
+                            swal("Barang telah dihapus!", {
+                                icon: "success",
+                            }).then((submitForm) => {
+                                form.submit();
+                            });
+                        } else {
+                            swal("Barangmu aman!");
+                        }
+                    });
             }
         </script>
     </body>

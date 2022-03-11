@@ -79,6 +79,6 @@ public class BarangController {
   @DeleteMapping(path = "/barangku/{id}")
   public String deleteBarang(@PathVariable String id) {
     barangService.deleteById(id);
-    return "redirect:/";
+    return "redirect:/barangku";
   }
 }
