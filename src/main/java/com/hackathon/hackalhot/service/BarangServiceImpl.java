@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class BarangServiceImpl implements BarangService {
@@ -37,6 +38,11 @@ public class BarangServiceImpl implements BarangService {
   @Override
   public Barang findById(String id) {
     return barangRepository.getById(id);
+  }
+
+  @Override
+  public List<Barang> findByTersalurkan() {
+    return barangRepository.findAll().stream().filter(barang -> barang.getIsTersalurkan()).collect(Collectors.toList());
   }
 
   @Override

@@ -43,7 +43,8 @@ public class HelperController {
   }
 
   @GetMapping(path = "/terhibah")
-  public String deliveredBarang() {
+  public String deliveredBarang(Model model) {
+    model.addAttribute("barangList", barangService.findByTersalurkan());
     return "barang/terhibah";
   }
 

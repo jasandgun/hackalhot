@@ -16,6 +16,8 @@ public interface BarangService {
 
   Barang findById(String id);
 
+  List<Barang>findByTersalurkan();
+
   Barang update(String id, UpdateBarangRequest request);
 
   void deleteById(String id);
