@@ -6,7 +6,7 @@ as an entry for **Blibli Cinta Bumi 2022 Hackathon**.
 <img src="src/main/resources/static/assets/readme/hackathon.png" width="500">
 
 The Goal of **Warehouse** is to help bridge the gap between users who want to 
-donate or give their **used / unused** or **recyclable** items to **save the world**.
+donate or give their **used / unused** or **recyclable** items to **save the earth**.
 
 
 ## Home
