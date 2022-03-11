@@ -1,2 +1,42 @@
-# hackalhot
-repo for hackalhot's hackathon
+# Warehouse
+
+Warehouse is a prototype application made by **Hackalhot**
+as an entry for **Blibli Cinta Bumi 2022 Hackathon**.
+
+<img src="src/main/resources/static/assets/readme/hackathon.png" width="500">
+
+The goal of Warehouse is to help bridge the gap between users who want to donate
+their used, pre-owned, or open box items to those who needs them.
+
+## Home
+### Dashboard
+
+<img src="src/main/resources/static/assets/readme/home.png" width="500">
+
+### Donated Items
+<img src="src/main/resources/static/assets/readme/terhibah.png" width="500">
+
+## User Pages
+### Register and Login
+
+<img src="src/main/resources/static/assets/readme/register.png" width="500">
+
+
+<img src="src/main/resources/static/assets/readme/login.png" width="500">
+
+### User Profile
+
+<img src="src/main/resources/static/assets/readme/profile.gif" width="500">
+
+### User Items
+
+<img src="src/main/resources/static/assets/readme/barangku_2.png" width="500">
+
+
+<img src="src/main/resources/static/assets/readme/barangku_delete_ok.gif" width="500">
+
+
+<img src="src/main/resources/static/assets/readme/barangku_delete_cancel.gif" width="500">
+
+
+<img src="src/main/resources/static/assets/readme/barangku_demo_button_salurkan.gif" width="500">
