@@ -12,10 +12,10 @@ donate or give their **used / unused** or **recyclable** items to **save the wor
 ## Home
 ### Dashboard
 
-<img src="src/main/resources/static/assets/readme/home.png" width="500">
+<img src="src/main/resources/static/assets/readme/home.jpeg" width="500">
 
 ### Donated Items
-<img src="src/main/resources/static/assets/readme/terhibah.png" width="500">
+<img src="src/main/resources/static/assets/readme/terhibah.jpeg" width="500">
 
 ## User Pages
 ### Register and Login
